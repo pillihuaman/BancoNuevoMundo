@@ -1,0 +1,24 @@
+
+ <div id="sbi_camera_button" class="sbi_search">
+</div>
+<nav class="navbar navbar-default" id="navigation-purple">
+
+<div class="container">
+    <a href="#"><img class="img-responsive img-circle avatar" src="{{lstMenuImage[0].url}}" alt=""></a>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+            <li *ngFor="let menu  of menubaseLateral">
+            <a routerLink="{{menu.url}}"  >{{ menu.nombre}}</a>
+            </li>
+        </ul>
+        
+    </div>
+</div>
+</nav>

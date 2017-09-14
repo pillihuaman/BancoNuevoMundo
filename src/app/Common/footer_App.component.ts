@@ -1,16 +1,14 @@
 import {Component} from '@angular/core';
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
 @Component({
-    selector:"footer-app",
-     template:` 
-
-
-     <div class="row" style="text-align:center;">
+    selector: 'app-footer',
+     template: `<div class="row" style="text-align:center;">
          <footer class="footer-bs">
          <div class="row">
          <div class="col-md-3 footer-brand animated fadeInLeft">
          <h2>Logo</h2>
-         <p>Banco nuevo mundo una entidad para el servicio de la gente desde 1900 hasta ahora en pleno compromision en el crecimiento del país</p>
+         <p>Banco nuevo mundo una entidad para el servicio de la gente desde 1900
+          hasta ahora en pleno compromision en el crecimiento del país</p>
          <p>© 2017 PE, All rights reserved</p>
         </div>
          </div>
@@ -53,24 +51,16 @@ import {FormsModule} from '@angular/forms'
  <span class="input-group-btn">
    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
  </span>
-</div>
-     
-         </footer>
-     </div>
-
-  
-     
-     ` ,
+</div>  </footer>
+     </div> ` ,
 })
 
- export class FooterAPP
- {
-   nombre:string;
-   descripcion:string
-    constructor()
-    {
-         this.nombre="Footer APP";
-          this.descripcion="Footer banco Nuevo mundo";
+ export class FooterComponent {
+   nombre: string;
+   descripcion: string;
+    constructor() {
+         this.nombre = 'Footer APP';
+          this.descripcion = 'Footer banco Nuevo mundo';
     }
 
  }
