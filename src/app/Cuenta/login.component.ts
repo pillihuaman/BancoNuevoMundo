@@ -1,8 +1,7 @@
-import {Component ,
-    OnInit} from '@angular/core';
-import {Router,
-    ActivatedRoute} from '@angular/router';
+import {Component , OnInit , ViewContainerRef} from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
 import {Autentificacion} from './autentificacion.service';
+ import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 
 @Component({
 selector: 'app-loggin',
@@ -13,8 +12,11 @@ providers: [Autentificacion]
      model: any = {};
      loading = false;
      returnurl: string;
-     constructor(
-         private route: ActivatedRoute, private  router: Router , private authentificacion: Autentificacion) {}
+     constructor(private route: ActivatedRoute, private  router: Router ,
+         private authentificacion: Autentificacion ,
+          public toastr: ToastsManager, vcr: ViewContainerRef ) {
+            this.toastr.setRootViewContainerRef(vcr);
+          }
     ngOnInit() {
         this.authentificacion.logout();
      this.returnurl = this.route.snapshot.queryParams['returnUrl'] || '/'; }
@@ -24,4 +26,7 @@ providers: [Autentificacion]
          (
            data => { this.router.navigate([this.returnurl]);
         }); }
-    }
+        showSuccess() {
+            this.toastr.error('Se inserto correctamente', 'Success!');
+          } }
+

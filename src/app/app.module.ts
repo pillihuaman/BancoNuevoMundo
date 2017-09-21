@@ -12,8 +12,27 @@ import {Autentificacion} from './cuenta/autentificacion.service';
 import { AppConfig } from './app.config';
 import { RegistrarCliComponent } from './cuenta/registrar-cli/registrar-cli.component';
 import {RegistrarService} from '../../src/app/cuenta/registrar-cli/registrar-cli.service';
+ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+ import {ToastOptions , ToastModule, ToastsManager, } from 'ng2-toastr/ng2-toastr';
+ export class  ToastConfiguration extends ToastOptions {
+  closeButton: false;
+  debug: false;
+  newestOnTop: false;
+  progressBar: false;
+  positionClass: 'toast-top-left';
+  preventDuplicates: true;
+  onclick: null;
+  showDuration: 300;
+  hideDuration: 1000;
+  timeOut: 5000;
+  extendedTimeOut: 1000;
+  showEasing: 'swing';
+  hideEasing: 'linear';
+  showMethod: 'fadeIn';
+  hideMethod: 'fadeOut';
+}
 
-@NgModule({
+ @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -26,9 +45,9 @@ import {RegistrarService} from '../../src/app/cuenta/registrar-cli/registrar-cli
     BrowserModule, FormsModule,
      ReactiveFormsModule,
      HttpModule,
-     AppRoutingComponent
+     AppRoutingComponent, ToastModule.forRoot(), BrowserAnimationsModule
   ],
-  providers: [Autentificacion, AppConfig, RegistrarService ],
+  providers: [Autentificacion, AppConfig, RegistrarService , {provide: ToastOptions, useClass: ToastConfiguration } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,23 @@
 import {Component} from '@angular/core';
 import {Menus} from './Menu';
 import {MenuImagen} from './ImagesApp';
+
+
+
+
+import {Injectable} from '@angular/core';
+import {Http, Headers, Response } from '@angular/http';
+import 'rxjs/add/operator/map';
+
+import {Observable} from 'rxjs/Observable';
+
+
+
+
+
+
+
+
 type menubaseLaterallist = Array<Menus>;
  const lstmenus: menubaseLaterallist =
  [
@@ -34,4 +51,9 @@ selector: 'app-header-component',
  this.title = 'NuevoMundo';
  this.numeracion = 0;
   }
+   loadHeader() {
+    const nombreusuario = localStorage.getItem('Correo_usuario');
+    return document.getElementById('nombre_usuario').innerHTML  =  nombreusuario;
+
+   }
    }

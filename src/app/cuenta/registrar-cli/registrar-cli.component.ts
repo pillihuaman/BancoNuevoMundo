@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router , ActivatedRoute} from '@angular/router';
 import {RegistrarService} from './registrar-cli.service';
+import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 @Component({
   selector: 'app-registrar-cli',
   templateUrl: './registrar-cli.component.html',
@@ -14,12 +15,16 @@ export class RegistrarCliComponent implements OnInit {
   ngOnInit() {
   }
   registrar() {
-     this.registerService.RegistrarCliente( this.model.Address , this.model.Contrasenia , this.model.DNI , this.model.LastName,
-    this.model.NombreUsuario ).subscribe (
+     this.registerService.RegistrarCliente( this.model.Direccion , this.model.Contrasenia , this.model.DNI , this.model.ApellidoPaterno,
+    this.model.NombreUsuario , this.model.ApellidoMaterno, this.model.CorreoElectronico)
+    .subscribe (
       data => { this.route.navigate([this.returnurl]);
       }) ;
 
    }
+   showSuccess() {
+  
+  }
 
 }
 

@@ -4,20 +4,28 @@
   <form name="form" (ngSubmit)="f.form.valid && registrar()" #f="ngForm" novalidate>
 
    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !NombreUsuario.valid }">
-       <label for="NombreUsuario">Nombre de Usuario</label>
+       <label for="NombreUsuario">Nombre:</label>
        <input type="text" class="form-control"
 	  name="NombreUsuario" [(ngModel)]="model.NombreUsuario" 
 	  #NombreUsuario="ngModel" required />
        <div *ngIf="f.submitted && !NombreUsuario.valid" class="help-block">Se requiere nombre  </div>
    </div> 
+   <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !ApellidoPaterno.valid }">
+        <label for="ApellidoPaterno"> Apellidos Paterno:</label>
+        <input type="text" class="form-control"
+        name="ApellidoPaterno" [(ngModel)]="model.ApellidoPaterno" 
+        #ApellidoPaterno="ngModel" required />
+        <div *ngIf="f.submitted && !ApellidoPaterno.valid" class="help-block">Apellido Paterno   </div>
+    </div>
 
-   <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Address.valid }">
-     <label for="Address">Direccion :</label>
-     <input type="text" class="form-control"
-     name="Address" [(ngModel)]="model.Address" 
-     #Address="ngModel" required />
-     <div *ngIf="f.submitted && !Address.valid" class="help-block">Se requiere una direccion  </div>
- </div> 
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !ApellidoMaterno.valid }">
+        <label for="ApellidoMaterno"> Apellidos Materno:</label>
+        <input type="text" class="form-control"
+        name="ApellidoMaterno" [(ngModel)]="model.ApellidoMaterno" 
+        #ApellidoMaterno="ngModel" required />
+        <div *ngIf="f.submitted && !ApellidoMaterno.valid" class="help-block">  Apellido Materno </div>
+    </div>
+
  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Contrasenia.valid }">
      <label for="Contrasenia"> Contraseña:</label>
      <input type="password" class="form-control"
@@ -32,13 +40,22 @@
      #DNI="ngModel" required />
      <div *ngIf="f.submitted && !DNI.valid" class="help-block">Ingrese su DNI   </div>
  </div> 
- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !LastName.valid }">
-     <label for="LastName"> Apellidos:</label>
-     <input type="text" class="form-control"
-     name="LastName" [(ngModel)]="model.LastName" 
-     #LastName="ngModel" required />
-     <div *ngIf="f.submitted && !LastName.valid" class="help-block">Ingrese su Apellidos   </div>
- </div>
+ <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Direccion.valid }">
+        <label for="Direccion">Direccion :</label>
+        <input type="text" class="form-control"
+        name="Direccion" [(ngModel)]="model.Direccion" 
+        #Direccion="ngModel" required />
+        <div *ngIf="f.submitted && !Direccion.valid" class="help-block">Se requiere una direccion  </div>
+    </div> 
+
+     <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !CorreoElectronico.valid }">
+        <label for="CorreoElectronico">Correo Electronico :</label>
+        <input type="text" class="form-control"
+        name="CorreoElectronico" [(ngModel)]="model.CorreoElectronico" 
+        #Direccion="ngModel" required />
+        <div *ngIf="f.submitted && !CorreoElectronico.valid" class="help-block">CorreoElectronico </div>
+    </div> 
+
    <div class="form-group">
        <button [disabled]="loading" class="btn btn-primary 
 	  btn-success">Registrar Usuario</button>
